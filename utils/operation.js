@@ -1,15 +1,17 @@
 export function add(numbers) {
-    return { result: numbers.reduce((result, num) => result + num, 0) }
+    return numbers.reduce((sum, num) => sum + num, 0);
 }
 
 export function subtract(numbers) {
-    return { result: numbers.reduce((result, num) => result - num) }
+    return numbers.reduce((result, num) => result - num, numbers[0]);
 }
 
 export function multiply(numbers) {
-    return { result: numbers.reduce((result, num) => result * num) }
+    return numbers.reduce((result, num) => result * num, 1);
 }
 
 export function divide(numbers) {
-    return { result: numbers.reduce((result, num) => result / num) }
+    return numbers.slice(1).reduce((result, num) => {
+    if (num === 0)  return NaN;
+    return result / num; }, numbers[0]);
 }
