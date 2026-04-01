@@ -1,9 +1,11 @@
 import _ from "lodash"
 
 export function parseNumbers(input) {
-    return { numbers: _.split(input, ",").map(num => Number(num.trim())) };
+    const numbers = _.map(input, (str) => Number(str));
+    return _.compact(numbers);
 }
 
 export function isValidOperation(operation) {
-    return { isValid: _.includes(["add", "subtract", "multiply", "divide"], operation.toLowerCase()) };
+    const validOps = ["add", "subtract", "multiply", "divide"];
+    return _.includes(validOps, operation.toLowerCase());
 }
