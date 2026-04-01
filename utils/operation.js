@@ -3,7 +3,7 @@ export function add(numbers) {
 }
 
 export function subtract(numbers) {
-    return numbers.reduce((result, num) => result - num, numbers[0]);
+    return numbers.slice(1).reduce((result, num) => result - num, numbers[0]);
 }
 
 export function multiply(numbers) {
